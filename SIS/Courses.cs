@@ -258,7 +258,7 @@ namespace SIS
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 string id = row.Cells["course_id"].Value?.ToString();
-                Edit_Course edit_course = new Edit_Course(id);
+                Edit_Course edit_course = new Edit_Course(this, id);
                 this.Visible = false;
                 edit_course.Show();
             }

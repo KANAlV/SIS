@@ -68,18 +68,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(6, 22);
             label1.Name = "label1";
-            label1.Size = new Size(57, 15);
+            label1.Size = new Size(62, 15);
             label1.TabIndex = 0;
-            label1.Text = "Surname:";
+            label1.Text = "Surname:*";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(208, 22);
             label2.Name = "label2";
-            label2.Size = new Size(67, 15);
+            label2.Size = new Size(72, 15);
             label2.TabIndex = 1;
-            label2.Text = "First Name:";
+            label2.Text = "First Name:*";
             // 
             // label3
             // 
@@ -153,9 +153,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(239, 61);
             label5.Name = "label5";
-            label5.Size = new Size(48, 15);
+            label5.Size = new Size(53, 15);
             label5.TabIndex = 11;
-            label5.Text = "Gender:";
+            label5.Text = "Gender:*";
             // 
             // comboBox2
             // 
@@ -171,9 +171,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(477, 58);
             label6.Name = "label6";
-            label6.Size = new Size(62, 15);
+            label6.Size = new Size(67, 15);
             label6.TabIndex = 12;
-            label6.Text = "Birth Date:";
+            label6.Text = "Birth Date:*";
             // 
             // groupBox1
             // 
@@ -249,27 +249,27 @@
             label9.AutoSize = true;
             label9.Location = new Point(21, 223);
             label9.Name = "label9";
-            label9.Size = new Size(105, 15);
+            label9.Size = new Size(110, 15);
             label9.TabIndex = 18;
-            label9.Text = "Employment Type:";
+            label9.Text = "Employment Type:*";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Location = new Point(265, 223);
             label10.Name = "label10";
-            label10.Size = new Size(33, 15);
+            label10.Size = new Size(38, 15);
             label10.TabIndex = 19;
-            label10.Text = "Role:";
+            label10.Text = "Role:*";
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Location = new Point(439, 223);
             label11.Name = "label11";
-            label11.Size = new Size(53, 15);
+            label11.Size = new Size(58, 15);
             label11.TabIndex = 20;
-            label11.Text = "Position:";
+            label11.Text = "Position:*";
             // 
             // comboBox3
             // 

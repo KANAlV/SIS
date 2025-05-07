@@ -14,11 +14,13 @@ namespace SIS
 {
     public partial class Edit_Course : Form
     {
+        Form Cor;
         string id;
         string connectionString = "server=localhost;database=sis;user=root;password=;";
-        public Edit_Course(string id)
+        public Edit_Course(Form Cor, string id)
         {
             InitializeComponent();
+            this.Cor = Cor;
             this.id = id;
             string query = $@"SELECT course_code FROM course WHERE course_id != {id}";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -168,6 +170,11 @@ namespace SIS
                 }
             }
 
+        }
+
+        private void Edit_Course_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Cor.Visible = true;
         }
     }
 }

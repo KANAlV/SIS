@@ -40,8 +40,6 @@
             textBox3 = new TextBox();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            panel1 = new Panel();
             staff_id = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             code = new DataGridViewTextBoxColumn();
@@ -55,6 +53,8 @@
             position = new DataGridViewTextBoxColumn();
             phone = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
+            button1 = new Button();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -72,10 +72,11 @@
             button4.TabIndex = 17;
             button4.Text = "⟳";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(170, 34);
+            textBox5.Location = new Point(149, 34);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(100, 23);
             textBox5.TabIndex = 12;
@@ -85,7 +86,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(127, 38);
+            label5.Location = new Point(106, 38);
             label5.Name = "label5";
             label5.Size = new Size(37, 15);
             label5.TabIndex = 13;
@@ -110,11 +111,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(581, 37);
+            label4.Location = new Point(604, 37);
             label4.Name = "label4";
-            label4.Size = new Size(77, 15);
+            label4.Size = new Size(53, 15);
             label4.TabIndex = 10;
-            label4.Text = "Prerequisites:";
+            label4.Text = "Position:";
             // 
             // textBox4
             // 
@@ -135,28 +136,29 @@
             button2.TabIndex = 8;
             button2.Text = "Go";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(432, 37);
+            label3.Location = new Point(425, 37);
             label3.Name = "label3";
-            label3.Size = new Size(37, 15);
+            label3.Size = new Size(67, 15);
             label3.TabIndex = 6;
-            label3.Text = "Level:";
+            label3.Text = "First Name:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(326, 34);
+            textBox1.Location = new Point(319, 34);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 1;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(475, 34);
+            textBox3.Location = new Point(498, 34);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 5;
@@ -166,11 +168,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(276, 37);
+            label1.Location = new Point(255, 37);
             label1.Name = "label1";
-            label1.Size = new Size(46, 15);
+            label1.Size = new Size(58, 15);
             label1.TabIndex = 2;
-            label1.Text = "Course:";
+            label1.Text = "Surname:";
             // 
             // dataGridView1
             // 
@@ -183,38 +185,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(814, 351);
             dataGridView1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(1, 109, 183);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(39, 33);
-            button1.TabIndex = 7;
-            button1.Text = "<";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(1, 109, 183);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(1, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(837, 70);
-            panel1.TabIndex = 16;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // staff_id
             // 
@@ -301,6 +272,39 @@
             email.Name = "email";
             email.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(1, 109, 183);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(39, 33);
+            button1.TabIndex = 7;
+            button1.Text = "<";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(1, 109, 183);
+            panel1.Controls.Add(textBox5);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(1, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(837, 70);
+            panel1.TabIndex = 16;
+            // 
             // Faculty
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -310,6 +314,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Name = "Faculty";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Faculty";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);

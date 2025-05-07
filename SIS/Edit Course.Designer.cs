@@ -281,6 +281,7 @@
             Controls.Add(textBox1);
             Name = "Edit_Course";
             Text = "Edit_Course";
+            FormClosed += Edit_Course_FormClosed;
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

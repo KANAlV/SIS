@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Claims;
@@ -55,7 +56,7 @@ namespace SIS
 
         private void comboBox4_TextChanged(object sender, EventArgs e)
         {
-            comboBox4.Items.Clear();
+            comboBox5.Items.Clear();
             switch (comboBox4.Text)
             {
                 case "Admin":
@@ -99,6 +100,9 @@ namespace SIS
         }
         private byte[] ImageToByteArray(Image image)
         {
+            if (image == null)
+                return null;
+
             using (MemoryStream ms = new MemoryStream())
             {
                 image.Save(ms, image.RawFormat);
@@ -108,7 +112,77 @@ namespace SIS
 
         private void button2_Click(object sender, EventArgs e)
         {
+            bool Cont = true;
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
+            if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
+            if (string.IsNullOrWhiteSpace(comboBox2.Text)) { Cont = false; Debug.WriteLine("cb2"); }
+            if (string.IsNullOrWhiteSpace(comboBox3.Text)) { Cont = false; Debug.WriteLine("cb3"); }
+            if (string.IsNullOrWhiteSpace(comboBox4.Text)) { Cont = false; Debug.WriteLine("cb4"); }
+            if (string.IsNullOrWhiteSpace(comboBox7.Text)) { Cont = false; Debug.WriteLine("cb4"); }
+            if (Cont == true)
+            {
+                string insertQuery = @"INSERT INTO faculty
+                (teacher_code, surname, firstname, middle_name, suffix, date_of_birth, gender, phone, email, employment_type, role, position, department, status, photo)
+                VALUES (
+                    @TC, @SN, @FN,
+                    @MN, @SUF, @DoB,
+                    @Gen, @Phn, @email,
+                    @ET, @Rol, @Pos,
+                    @Dept, @Stat, @Phot
+                )";
 
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    string teachCode = (textBox2.Text[0].ToString() + textBox3.Text[0].ToString() + textBox1.Text[0].ToString());
+
+                    switch (comboBox2.Text)
+                    {
+                        case "Male":
+                            command.Parameters.AddWithValue("@Gen", "M");
+                            break;
+                        case "Female":
+                            command.Parameters.AddWithValue("@Gen", "F");
+                            break;
+                        case "Other":
+                            command.Parameters.AddWithValue("@Gen", "O");
+                            break;
+                    }
+
+                    command.Parameters.AddWithValue("@TC", teachCode);
+                    command.Parameters.AddWithValue("@SN", textBox1.Text);
+                    command.Parameters.AddWithValue("@FN", textBox2.Text);
+                    command.Parameters.AddWithValue("@MN", textBox3.Text);
+                    command.Parameters.AddWithValue("@SUF", comboBox1.Text);
+                    command.Parameters.Add("@DoB", MySqlDbType.Date).Value = dateTimePicker1.Value.Date;
+                    command.Parameters.AddWithValue("@Phn", textBox4.Text);
+                    command.Parameters.AddWithValue("@email", textBox5.Text);
+                    command.Parameters.AddWithValue("@ET", comboBox3.Text);
+                    command.Parameters.AddWithValue("@Rol", comboBox4.Text);
+                    command.Parameters.AddWithValue("@Pos", comboBox5.Text);
+                    command.Parameters.AddWithValue("@Dept", comboBox6.Text);
+                    command.Parameters.AddWithValue("@Stat", comboBox7.Text);
+
+                    byte[] imageBytes = ImageToByteArray(pictureBox1.Image);
+                    command.Parameters.AddWithValue("@Phot", imageBytes);
+                    
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsInserted = command.ExecuteNonQuery();
+                        MessageBox.Show($"{rowsInserted} row(s) inserted.");
+                        Console.WriteLine($"{rowsInserted} row(s) inserted.");
+                        Debug.WriteLine($"{rowsInserted} row(s) inserted.");
+                        Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                        Debug.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
