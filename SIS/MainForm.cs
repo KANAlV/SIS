@@ -18,5 +18,11 @@ namespace SIS
             Departments departments = new Departments();
             departments.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Faculty faculty = new Faculty();
+            faculty.Show();
+        }
     }
 }

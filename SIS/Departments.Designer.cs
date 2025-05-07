@@ -38,13 +38,13 @@
             label2 = new Label();
             textBox3 = new TextBox();
             dataGridView1 = new DataGridView();
-            panel1 = new Panel();
             code = new DataGridViewTextBoxColumn();
             department = new DataGridViewTextBoxColumn();
             head = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
             phone = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Transparent;
+            button1.BackColor = Color.FromArgb(1, 109, 183);
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.Location = new Point(3, 3);
@@ -87,6 +87,7 @@
             button1.TabIndex = 7;
             button1.Text = "<";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 
@@ -152,23 +153,6 @@
             dataGridView1.Size = new Size(814, 351);
             dataGridView1.TabIndex = 8;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(1, 109, 183);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(1, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(837, 70);
-            panel1.TabIndex = 9;
-            // 
             // code
             // 
             code.HeaderText = "code";
@@ -198,6 +182,23 @@
             // 
             status.HeaderText = "Status";
             status.Name = "status";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(1, 109, 183);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(1, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(837, 70);
+            panel1.TabIndex = 9;
             // 
             // Departments
             // 

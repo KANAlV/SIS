@@ -157,7 +157,8 @@ namespace SIS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Add_Course add_Course = new Add_Course();
+            Add_Course add_Course = new Add_Course(this);
+            this.Visible = false;
             add_Course.Show();
         }
 
@@ -258,6 +259,7 @@ namespace SIS
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 string id = row.Cells["course_id"].Value?.ToString();
                 Edit_Course edit_course = new Edit_Course(id);
+                this.Visible = false;
                 edit_course.Show();
             }
         }

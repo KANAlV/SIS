@@ -13,12 +13,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SIS
 {
-    public partial class Add_Course : Form
+    public partial class Add_Course : Form 
     {
+        Form crs;
         string connectionString = "server=localhost;database=sis;user=root;password=;";
-        public Add_Course()
+        public Add_Course(Form Crs)
         {
             InitializeComponent();
+            this.crs = Crs;
             string query = @"SELECT course_code FROM course";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -164,6 +166,11 @@ namespace SIS
                     }
                 }
             }
+        }
+
+        private void Add_Course_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.crs.Visible = true;
         }
     }
 }

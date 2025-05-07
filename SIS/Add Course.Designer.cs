@@ -263,6 +263,7 @@
             Name = "Add_Course";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Course";
+            FormClosed += Add_Course_FormClosed;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

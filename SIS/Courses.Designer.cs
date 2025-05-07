@@ -29,19 +29,6 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            panel1 = new Panel();
-            button4 = new Button();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            button3 = new Button();
-            label4 = new Label();
-            textBox4 = new TextBox();
-            button2 = new Button();
-            button1 = new Button();
             course_id = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             code = new DataGridViewTextBoxColumn();
@@ -52,6 +39,19 @@
             programtype = new DataGridViewTextBoxColumn();
             department = new DataGridViewTextBoxColumn();
             prerequisites = new DataGridViewTextBoxColumn();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            label3 = new Label();
+            textBox3 = new TextBox();
+            panel1 = new Panel();
+            textBox5 = new TextBox();
+            label5 = new Label();
+            button3 = new Button();
+            label4 = new Label();
+            textBox4 = new TextBox();
+            button2 = new Button();
+            button1 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -68,6 +68,70 @@
             dataGridView1.Size = new Size(814, 351);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // course_id
+            // 
+            course_id.HeaderText = "id";
+            course_id.Name = "course_id";
+            course_id.ReadOnly = true;
+            course_id.Visible = false;
+            // 
+            // status
+            // 
+            status.HeaderText = "Status";
+            status.Name = "status";
+            status.ReadOnly = true;
+            status.Width = 80;
+            // 
+            // code
+            // 
+            code.HeaderText = "Code";
+            code.Name = "code";
+            code.ReadOnly = true;
+            // 
+            // course
+            // 
+            course.HeaderText = "Course";
+            course.Name = "course";
+            course.ReadOnly = true;
+            course.Width = 150;
+            // 
+            // units
+            // 
+            units.HeaderText = "Units";
+            units.Name = "units";
+            units.ReadOnly = true;
+            // 
+            // semesters
+            // 
+            semesters.HeaderText = "Semesters";
+            semesters.Name = "semesters";
+            semesters.ReadOnly = true;
+            semesters.Width = 70;
+            // 
+            // level
+            // 
+            level.HeaderText = "Level";
+            level.Name = "level";
+            level.ReadOnly = true;
+            // 
+            // programtype
+            // 
+            programtype.HeaderText = "Type";
+            programtype.Name = "programtype";
+            programtype.ReadOnly = true;
+            // 
+            // department
+            // 
+            department.HeaderText = "Department";
+            department.Name = "department";
+            department.ReadOnly = true;
+            // 
+            // prerequisites
+            // 
+            prerequisites.HeaderText = "Prerequisites";
+            prerequisites.Name = "prerequisites";
+            prerequisites.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -123,21 +187,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(837, 70);
             panel1.TabIndex = 7;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.White;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(12, 75);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Size = new Size(41, 28);
-            button4.TabIndex = 14;
-            button4.Text = "⟳";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // textBox5
             // 
@@ -209,77 +258,28 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(0, -8);
+            button1.Location = new Point(3, 3);
             button1.Name = "button1";
-            button1.Size = new Size(39, 41);
+            button1.Size = new Size(39, 33);
             button1.TabIndex = 7;
             button1.Text = "<";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // course_id
+            // button4
             // 
-            course_id.HeaderText = "id";
-            course_id.Name = "course_id";
-            course_id.ReadOnly = true;
-            course_id.Visible = false;
-            // 
-            // status
-            // 
-            status.HeaderText = "Status";
-            status.Name = "status";
-            status.ReadOnly = true;
-            status.Width = 80;
-            // 
-            // code
-            // 
-            code.HeaderText = "Code";
-            code.Name = "code";
-            code.ReadOnly = true;
-            // 
-            // course
-            // 
-            course.HeaderText = "Course";
-            course.Name = "course";
-            course.ReadOnly = true;
-            course.Width = 150;
-            // 
-            // units
-            // 
-            units.HeaderText = "Units";
-            units.Name = "units";
-            units.ReadOnly = true;
-            // 
-            // semesters
-            // 
-            semesters.HeaderText = "Semesters";
-            semesters.Name = "semesters";
-            semesters.ReadOnly = true;
-            semesters.Width = 70;
-            // 
-            // level
-            // 
-            level.HeaderText = "Level";
-            level.Name = "level";
-            level.ReadOnly = true;
-            // 
-            // programtype
-            // 
-            programtype.HeaderText = "Type";
-            programtype.Name = "programtype";
-            programtype.ReadOnly = true;
-            // 
-            // department
-            // 
-            department.HeaderText = "Department";
-            department.Name = "department";
-            department.ReadOnly = true;
-            // 
-            // prerequisites
-            // 
-            prerequisites.HeaderText = "Prerequisites";
-            prerequisites.Name = "prerequisites";
-            prerequisites.ReadOnly = true;
+            button4.BackColor = Color.White;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(12, 75);
+            button4.Margin = new Padding(0);
+            button4.Name = "button4";
+            button4.Size = new Size(41, 28);
+            button4.TabIndex = 14;
+            button4.Text = "⟳";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // Courses
             // 

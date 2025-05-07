@@ -11,21 +11,28 @@ using MySql.Data.MySqlClient;
 
 namespace SIS
 {
-    public partial class Departments : Form
+    public partial class Faculty : Form
     {
         string connectionString = "server=localhost;database=sis;user=root;password=;";
-        public Departments()
+        public Faculty()
         {
             InitializeComponent();
             string query = @"
             SELECT 
-                code,
-                department_name,
-                head_of_department,
-                email,
+                staff_id,
+                teacher_code,
+                surname,
+                firstname,
+                middle_name,
+                suffix,
+                gender,
+                department,
+                position,
+                role,
                 phone,
+                email,
                 status
-            FROM department;
+            FROM faculty;
             ";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -39,22 +46,26 @@ namespace SIS
                         {
                             while (reader.Read())
                             {
-                                string Code = reader["code"].ToString();
-                                string DeptName = reader["department_name"].ToString();
-                                string HoD = reader["head_of_department"].ToString();
+                                string Id = reader["staff_id"].ToString();
+                                string Code = reader["teacher_code"].ToString();
+                                string Sur = reader["surname"].ToString();
+                                string Fn = reader["firstname"].ToString();
+                                char Mi = reader["middle_name"].ToString()[0];
+                                string Sfx = reader["suffix"].ToString();
+                                string Gen = reader["gender"].ToString();
+                                string Dept = reader["department"].ToString();
+                                string Pos = reader["position"].ToString();
+                                string Rol = reader["role"].ToString();
                                 string email = reader["email"].ToString();
                                 string phn = reader["phone"].ToString();
                                 string stat = reader["status"].ToString();
 
-                                dataGridView1.Rows.Add(Code, DeptName, HoD, email, phn, stat);
+                                dataGridView1.Rows.Add(Id, stat, Code, Sur, Fn, Mi, Sfx, Gen, Dept, Rol, Pos, phn, email);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("No Departments found.");
-                            Add_Department add_Department = new Add_Department(this);
-                            add_Department.Show();
-                            this.Visible = false;
+                            MessageBox.Show("No Faculty found.");
                         }
                     }
                 }
@@ -63,14 +74,9 @@ namespace SIS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Add_Department add_Department = new Add_Department(this);
+            Add_Faculty add_Faculty = new Add_Faculty(this);
             this.Visible = false;
-            add_Department.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Close();
+            add_Faculty.Show();
         }
     }
 }
