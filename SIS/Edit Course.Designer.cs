@@ -52,12 +52,14 @@
             label8 = new Label();
             label14 = new Label();
             label15 = new Label();
+            button3 = new Button();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // richTextBox1
             // 
+            richTextBox1.Enabled = false;
             richTextBox1.Location = new Point(6, 22);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(380, 158);
@@ -76,6 +78,7 @@
             // 
             // textBox4
             // 
+            textBox4.Enabled = false;
             textBox4.ForeColor = SystemColors.ScrollBar;
             textBox4.Location = new Point(6, 22);
             textBox4.Name = "textBox4";
@@ -117,6 +120,7 @@
             // 
             // listBox1
             // 
+            listBox1.Enabled = false;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(6, 52);
@@ -141,6 +145,7 @@
             // 
             // comboBox4
             // 
+            comboBox4.Enabled = false;
             comboBox4.FormattingEnabled = true;
             comboBox4.Location = new Point(102, 70);
             comboBox4.Name = "comboBox4";
@@ -158,6 +163,7 @@
             // 
             // comboBox3
             // 
+            comboBox3.Enabled = false;
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "1st", "2nd", "3rd", "1st, 2nd", "All" });
             comboBox3.Location = new Point(299, 70);
@@ -176,6 +182,7 @@
             // 
             // comboBox2
             // 
+            comboBox2.Enabled = false;
             comboBox2.FormattingEnabled = true;
             comboBox2.Items.AddRange(new object[] { "11", "12", "1", "2", "3", "4" });
             comboBox2.Location = new Point(299, 38);
@@ -194,6 +201,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.Enabled = false;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Undergraduate", "Graduate", "Diploma", "Foundation", "Doctorate" });
             comboBox1.Location = new Point(102, 38);
@@ -221,6 +229,7 @@
             // 
             // textBox2
             // 
+            textBox2.Enabled = false;
             textBox2.Location = new Point(484, 9);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(128, 23);
@@ -237,6 +246,7 @@
             // 
             // textBox1
             // 
+            textBox1.Enabled = false;
             textBox1.Location = new Point(102, 9);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(286, 23);
@@ -244,6 +254,7 @@
             // 
             // comboBox6
             // 
+            comboBox6.Enabled = false;
             comboBox6.FormattingEnabled = true;
             comboBox6.Items.AddRange(new object[] { "Active", "Archived" });
             comboBox6.Location = new Point(429, 289);
@@ -278,11 +289,26 @@
             label15.TabIndex = 87;
             label15.Text = "Last Updated:";
             // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.FromArgb(1, 109, 183);
+            button3.Location = new Point(537, 288);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 91;
+            button3.Text = "Edit";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // Edit_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 321);
+            Controls.Add(button3);
             Controls.Add(label14);
             Controls.Add(label15);
             Controls.Add(comboBox6);
@@ -338,5 +364,6 @@
         private Label label15;
         private Label label5;
         private Label label9;
+        private Button button3;
     }
 }

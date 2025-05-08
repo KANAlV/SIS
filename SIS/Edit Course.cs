@@ -142,7 +142,6 @@ namespace SIS
                     var selectedItems1 = listBox1.SelectedItems.Cast<string>();
                     string prereq1 = string.Join(", ", selectedItems1);
                     command.Parameters.AddWithValue("@prereqs", prereq1);
-                    command.Parameters.AddWithValue("@stats", comboBox6.Text);
 
                     try
                     {
@@ -151,7 +150,7 @@ namespace SIS
                         MessageBox.Show($"{rowsUpdated} row(s) updated.");
                         Console.WriteLine($"{rowsUpdated} row(s) updated.");
                         Debug.WriteLine($"{rowsUpdated} row(s) updated.");
-                        Close();
+                        toggleEdit(false);
                     }
                     catch (Exception ex)
                     {
@@ -217,6 +216,11 @@ namespace SIS
         }
         private void getUnitTotal(string prereq)
         {
+            if (string.IsNullOrWhiteSpace(prereq))
+            {
+                return; // or handle it gracefully (e.g., set units to 0, show message, etc.)
+            }
+
             string query = $@"SELECT units FROM subjects WHERE subject_code IN ({prereq})";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -236,6 +240,25 @@ namespace SIS
                     }
                 }
             }
+        }
+        private void toggleEdit(bool toggle)
+        {
+            textBox1.Enabled = toggle;
+            textBox2.Enabled = toggle;
+            textBox4.Enabled = toggle;
+            comboBox1.Enabled = toggle;
+            comboBox2.Enabled = toggle;
+            comboBox3.Enabled = toggle;
+            comboBox4.Enabled = toggle;
+            comboBox6.Enabled = toggle;
+            richTextBox1.Enabled = toggle;
+            listBox1.Enabled = toggle;
+            button3.Visible = !toggle;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            toggleEdit(true);
         }
     }
 }
