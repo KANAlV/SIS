@@ -66,7 +66,6 @@ namespace SIS
             bool Cont = true;
             if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
             if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
-            if (string.IsNullOrWhiteSpace(comboBox5.Text)) { Cont = false; Debug.WriteLine("cb5"); }
             if (string.IsNullOrWhiteSpace(comboBox1.Text)) { Cont = false; Debug.WriteLine("cb1"); }
             if (string.IsNullOrWhiteSpace(comboBox2.Text)) { Cont = false; Debug.WriteLine("cb2"); }
             if (string.IsNullOrWhiteSpace(comboBox3.Text)) { Cont = false; Debug.WriteLine("cb3"); }
@@ -92,7 +91,7 @@ namespace SIS
                     command.Parameters.AddWithValue("@CC", textBox2.Text);
                     command.Parameters.AddWithValue("@CN", textBox1.Text);
                     command.Parameters.AddWithValue("@Desc", richTextBox1.Text);
-                    command.Parameters.AddWithValue("@units", comboBox5.Text);
+                    command.Parameters.AddWithValue("@units", null);
                     command.Parameters.AddWithValue("@deptCD", comboBox4.Text);
                     command.Parameters.AddWithValue("@PT", comboBox1.Text);
                     command.Parameters.AddWithValue("@lvl", comboBox2.Text);

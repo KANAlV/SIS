@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox5 = new ComboBox();
             richTextBox1 = new RichTextBox();
             groupBox2 = new GroupBox();
             textBox4 = new TextBox();
             groupBox1 = new GroupBox();
+            label5 = new Label();
+            label9 = new Label();
             listBox1 = new ListBox();
             button1 = new Button();
             comboBox4 = new ComboBox();
             label7 = new Label();
             comboBox3 = new ComboBox();
             label6 = new Label();
-            label5 = new Label();
             comboBox2 = new ComboBox();
             label4 = new Label();
             comboBox1 = new ComboBox();
@@ -55,15 +55,6 @@
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // comboBox5
-            // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" });
-            comboBox5.Location = new Point(102, 67);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(66, 23);
-            comboBox5.TabIndex = 37;
             // 
             // richTextBox1
             // 
@@ -91,17 +82,38 @@
             textBox4.Size = new Size(188, 23);
             textBox4.TabIndex = 20;
             textBox4.Text = "Search...";
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(listBox1);
-            groupBox1.Location = new Point(412, 70);
+            groupBox1.Location = new Point(412, 38);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 213);
+            groupBox1.Size = new Size(200, 245);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prerequisite Course";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(72, 228);
+            label5.Name = "label5";
+            label5.Size = new Size(21, 15);
+            label5.TabIndex = 90;
+            label5.Text = "##";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 227);
+            label9.Name = "label9";
+            label9.Size = new Size(65, 15);
+            label9.TabIndex = 89;
+            label9.Text = "Total Units:";
             // 
             // listBox1
             // 
@@ -110,7 +122,7 @@
             listBox1.Location = new Point(6, 52);
             listBox1.Name = "listBox1";
             listBox1.SelectionMode = SelectionMode.MultiSimple;
-            listBox1.Size = new Size(188, 154);
+            listBox1.Size = new Size(188, 169);
             listBox1.TabIndex = 16;
             // 
             // button1
@@ -130,15 +142,15 @@
             // comboBox4
             // 
             comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(510, 38);
+            comboBox4.Location = new Point(102, 70);
             comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(102, 23);
+            comboBox4.Size = new Size(79, 23);
             comboBox4.TabIndex = 33;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(431, 41);
+            label7.Location = new Point(23, 73);
             label7.Name = "label7";
             label7.Size = new Size(73, 15);
             label7.TabIndex = 32;
@@ -148,28 +160,19 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "1st", "2nd", "3rd", "1st, 2nd", "All" });
-            comboBox3.Location = new Point(281, 67);
+            comboBox3.Location = new Point(299, 70);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
+            comboBox3.Size = new Size(103, 23);
             comboBox3.TabIndex = 31;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(174, 70);
+            label6.Location = new Point(187, 73);
             label6.Name = "label6";
             label6.Size = new Size(106, 15);
             label6.TabIndex = 30;
             label6.Text = "Semester Offered:*";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(59, 70);
-            label5.Name = "label5";
-            label5.Size = new Size(42, 15);
-            label5.TabIndex = 29;
-            label5.Text = "Units:*";
             // 
             // comboBox2
             // 
@@ -177,7 +180,7 @@
             comboBox2.Items.AddRange(new object[] { "11", "12", "1", "2", "3", "4" });
             comboBox2.Location = new Point(299, 38);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
+            comboBox2.Size = new Size(103, 23);
             comboBox2.TabIndex = 28;
             // 
             // label4
@@ -284,7 +287,6 @@
             Controls.Add(label15);
             Controls.Add(comboBox6);
             Controls.Add(label8);
-            Controls.Add(comboBox5);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(button1);
@@ -292,7 +294,6 @@
             Controls.Add(label7);
             Controls.Add(comboBox3);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(comboBox2);
             Controls.Add(label4);
             Controls.Add(comboBox1);
@@ -313,8 +314,6 @@
         }
 
         #endregion
-
-        private ComboBox comboBox5;
         private RichTextBox richTextBox1;
         private GroupBox groupBox2;
         private TextBox textBox4;
@@ -325,7 +324,6 @@
         private Label label7;
         private ComboBox comboBox3;
         private Label label6;
-        private Label label5;
         private ComboBox comboBox2;
         private Label label4;
         private ComboBox comboBox1;
@@ -338,5 +336,7 @@
         private Label label8;
         private Label label14;
         private Label label15;
+        private Label label5;
+        private Label label9;
     }
 }

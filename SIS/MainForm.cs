@@ -24,5 +24,11 @@ namespace SIS
             Faculty faculty = new Faculty();
             faculty.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Enrollment enrollment = new Enrollment();
+            enrollment.Show();
+        }
     }
 }
