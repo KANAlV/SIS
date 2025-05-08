@@ -132,11 +132,16 @@ namespace SIS
                     command.Parameters.AddWithValue("@CC", textBox2.Text);
                     command.Parameters.AddWithValue("@CN", textBox1.Text);
                     command.Parameters.AddWithValue("@Desc", richTextBox1.Text);
-                    command.Parameters.AddWithValue("@units", null);
+                    command.Parameters.AddWithValue("@units", this.unit);
                     command.Parameters.AddWithValue("@deptCD", comboBox4.Text);
                     command.Parameters.AddWithValue("@PT", comboBox1.Text);
                     command.Parameters.AddWithValue("@lvl", comboBox2.Text);
                     command.Parameters.AddWithValue("@SO", comboBox3.Text);
+                    command.Parameters.AddWithValue("@stats", comboBox6.Text);
+
+                    var selectedItems1 = listBox1.SelectedItems.Cast<string>();
+                    string prereq1 = string.Join(", ", selectedItems1);
+                    command.Parameters.AddWithValue("@prereqs", prereq1);
                     command.Parameters.AddWithValue("@stats", comboBox6.Text);
 
                     try

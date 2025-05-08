@@ -16,6 +16,7 @@ namespace SIS
     public partial class Add_Course : Form 
     {
         Form crs;
+        int unit;
         string connectionString = "server=localhost;database=sis;user=root;password=;";
         public Add_Course(Form Crs)
         {
@@ -88,18 +89,22 @@ namespace SIS
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    var selectedItems = listBox1.SelectedItems.Cast<string>();
+                    string prereq = string.Join(", ", selectedItems.Select(item => $"'{item}'")); // adds quotes
+                    getUnitTotal(prereq);
+
                     command.Parameters.AddWithValue("@CC", textBox2.Text);
                     command.Parameters.AddWithValue("@CN", textBox1.Text);
                     command.Parameters.AddWithValue("@Desc", richTextBox1.Text);
-                    command.Parameters.AddWithValue("@units", null);
+                    command.Parameters.AddWithValue("@units", this.unit.ToString());
                     command.Parameters.AddWithValue("@deptCD", comboBox4.Text);
                     command.Parameters.AddWithValue("@PT", comboBox1.Text);
                     command.Parameters.AddWithValue("@lvl", comboBox2.Text);
                     command.Parameters.AddWithValue("@SO", comboBox3.Text);
 
-                    var selectedItems = listBox1.SelectedItems.Cast<string>();
-                    string prereq = string.Join(", ", selectedItems);
-                    command.Parameters.AddWithValue("@prereqs", prereq);
+                    var selectedItems1 = listBox1.SelectedItems.Cast<string>();
+                    string prereq1 = string.Join(", ", selectedItems1);
+                    command.Parameters.AddWithValue("@prereqs", prereq1);
 
                     try
                     {
@@ -170,6 +175,33 @@ namespace SIS
         private void Add_Course_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.crs.Visible = true;
+        }
+        private void getUnitTotal(string prereq)
+        {
+            if (string.IsNullOrWhiteSpace(prereq))
+            {
+                return; // or handle it gracefully (e.g., set units to 0, show message, etc.)
+            }
+
+            string query = $@"SELECT units FROM subjects WHERE subject_code IN ({prereq})";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int units = Convert.ToInt32(reader["units"]);
+                                this.unit += units;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

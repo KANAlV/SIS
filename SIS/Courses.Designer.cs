@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            course_id = new DataGridViewTextBoxColumn();
-            status = new DataGridViewTextBoxColumn();
-            code = new DataGridViewTextBoxColumn();
-            course = new DataGridViewTextBoxColumn();
-            units = new DataGridViewTextBoxColumn();
-            semesters = new DataGridViewTextBoxColumn();
-            level = new DataGridViewTextBoxColumn();
-            programtype = new DataGridViewTextBoxColumn();
-            department = new DataGridViewTextBoxColumn();
-            prerequisites = new DataGridViewTextBoxColumn();
             textBox1 = new TextBox();
             label1 = new Label();
             label3 = new Label();
@@ -52,6 +42,16 @@
             button2 = new Button();
             button1 = new Button();
             button4 = new Button();
+            course_id = new DataGridViewTextBoxColumn();
+            status = new DataGridViewTextBoxColumn();
+            code = new DataGridViewTextBoxColumn();
+            course = new DataGridViewTextBoxColumn();
+            units = new DataGridViewTextBoxColumn();
+            semesters = new DataGridViewTextBoxColumn();
+            level = new DataGridViewTextBoxColumn();
+            programtype = new DataGridViewTextBoxColumn();
+            department = new DataGridViewTextBoxColumn();
+            prerequisites = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -68,70 +68,6 @@
             dataGridView1.Size = new Size(814, 351);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
-            // 
-            // course_id
-            // 
-            course_id.HeaderText = "id";
-            course_id.Name = "course_id";
-            course_id.ReadOnly = true;
-            course_id.Visible = false;
-            // 
-            // status
-            // 
-            status.HeaderText = "Status";
-            status.Name = "status";
-            status.ReadOnly = true;
-            status.Width = 80;
-            // 
-            // code
-            // 
-            code.HeaderText = "Code";
-            code.Name = "code";
-            code.ReadOnly = true;
-            // 
-            // course
-            // 
-            course.HeaderText = "Course";
-            course.Name = "course";
-            course.ReadOnly = true;
-            course.Width = 150;
-            // 
-            // units
-            // 
-            units.HeaderText = "Units";
-            units.Name = "units";
-            units.ReadOnly = true;
-            // 
-            // semesters
-            // 
-            semesters.HeaderText = "Semesters";
-            semesters.Name = "semesters";
-            semesters.ReadOnly = true;
-            semesters.Width = 70;
-            // 
-            // level
-            // 
-            level.HeaderText = "Level";
-            level.Name = "level";
-            level.ReadOnly = true;
-            // 
-            // programtype
-            // 
-            programtype.HeaderText = "Type";
-            programtype.Name = "programtype";
-            programtype.ReadOnly = true;
-            // 
-            // department
-            // 
-            department.HeaderText = "Department";
-            department.Name = "department";
-            department.ReadOnly = true;
-            // 
-            // prerequisites
-            // 
-            prerequisites.HeaderText = "Prerequisites";
-            prerequisites.Name = "prerequisites";
-            prerequisites.ReadOnly = true;
             // 
             // textBox1
             // 
@@ -280,6 +216,70 @@
             button4.Text = "⟳";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
+            // 
+            // course_id
+            // 
+            course_id.HeaderText = "id";
+            course_id.Name = "course_id";
+            course_id.ReadOnly = true;
+            course_id.Visible = false;
+            // 
+            // status
+            // 
+            status.HeaderText = "Status";
+            status.Name = "status";
+            status.ReadOnly = true;
+            status.Width = 80;
+            // 
+            // code
+            // 
+            code.HeaderText = "Code";
+            code.Name = "code";
+            code.ReadOnly = true;
+            // 
+            // course
+            // 
+            course.HeaderText = "Course";
+            course.Name = "course";
+            course.ReadOnly = true;
+            course.Width = 150;
+            // 
+            // units
+            // 
+            units.HeaderText = "Units";
+            units.Name = "units";
+            units.ReadOnly = true;
+            // 
+            // semesters
+            // 
+            semesters.HeaderText = "Semesters";
+            semesters.Name = "semesters";
+            semesters.ReadOnly = true;
+            semesters.Width = 70;
+            // 
+            // level
+            // 
+            level.HeaderText = "Level";
+            level.Name = "level";
+            level.ReadOnly = true;
+            // 
+            // programtype
+            // 
+            programtype.HeaderText = "Type";
+            programtype.Name = "programtype";
+            programtype.ReadOnly = true;
+            // 
+            // department
+            // 
+            department.HeaderText = "Department";
+            department.Name = "department";
+            department.ReadOnly = true;
+            // 
+            // prerequisites
+            // 
+            prerequisites.HeaderText = "Subjects";
+            prerequisites.Name = "prerequisites";
+            prerequisites.ReadOnly = true;
             // 
             // Courses
             // 
