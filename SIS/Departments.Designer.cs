@@ -38,6 +38,7 @@
             label2 = new Label();
             textBox3 = new TextBox();
             dataGridView1 = new DataGridView();
+            department_id = new DataGridViewTextBoxColumn();
             code = new DataGridViewTextBoxColumn();
             department = new DataGridViewTextBoxColumn();
             head = new DataGridViewTextBoxColumn();
@@ -45,6 +46,7 @@
             phone = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -75,6 +77,7 @@
             button2.TabIndex = 8;
             button2.Text = "Go";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -147,11 +150,18 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { code, department, head, email, phone, status });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { department_id, code, department, head, email, phone, status });
             dataGridView1.Location = new Point(11, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(814, 351);
             dataGridView1.TabIndex = 8;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // department_id
+            // 
+            department_id.HeaderText = "department_id";
+            department_id.Name = "department_id";
+            department_id.Visible = false;
             // 
             // code
             // 
@@ -200,13 +210,30 @@
             panel1.Size = new Size(837, 70);
             panel1.TabIndex = 9;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.White;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(11, 74);
+            button4.Margin = new Padding(0);
+            button4.Name = "button4";
+            button4.Size = new Size(41, 28);
+            button4.TabIndex = 15;
+            button4.Text = "⟳";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // Departments
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(838, 441);
+            Controls.Add(button4);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Departments";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Departments";
@@ -229,6 +256,8 @@
         private TextBox textBox3;
         private DataGridView dataGridView1;
         private Panel panel1;
+        private Button button4;
+        private DataGridViewTextBoxColumn department_id;
         private DataGridViewTextBoxColumn code;
         private DataGridViewTextBoxColumn department;
         private DataGridViewTextBoxColumn head;

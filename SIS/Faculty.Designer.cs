@@ -313,6 +313,7 @@
             Controls.Add(button4);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Faculty";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Faculty";

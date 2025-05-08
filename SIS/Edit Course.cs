@@ -82,6 +82,7 @@ namespace SIS
                                 string level = reader["level"].ToString();
                                 string semester = reader["semester_offered"].ToString();
                                 string prerequisites = reader["prerequisite_ids"].ToString();
+                                string Last = reader["updated_at"].ToString();
                                 textBox1.Text = courseName;
                                 textBox2.Text = courseCode;
                                 comboBox1.Text = type;
@@ -91,6 +92,7 @@ namespace SIS
                                 comboBox5.Text = units;
                                 comboBox6.Text = status;
                                 richTextBox1.Text = description;
+                                label14.Text = Last;
 
                                 var codes = prerequisites.Split(',')
                                     .Select(code => code.Trim())

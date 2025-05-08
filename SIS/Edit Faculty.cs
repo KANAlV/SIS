@@ -55,6 +55,7 @@ namespace SIS
                                 string email = reader["email"].ToString();
                                 string phn = reader["phone"].ToString();
                                 string stat = reader["status"].ToString();
+                                string Last = reader["updated_at"].ToString();
                                 object photoObj = reader["photo"];
 
                                 if (photoObj != DBNull.Value && photoObj is byte[] bytes && bytes.Length > 0)
@@ -103,6 +104,7 @@ namespace SIS
                                 comboBox5.Text = Pos;
                                 comboBox6.Text = Dept;
                                 comboBox7.Text = stat;
+                                label14.Text = Last;
                             }
                         }
                         else

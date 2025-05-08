@@ -64,18 +64,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(14, 15);
             label1.Name = "label1";
-            label1.Size = new Size(82, 15);
+            label1.Size = new Size(87, 15);
             label1.TabIndex = 1;
-            label1.Text = "Course Name:";
+            label1.Text = "Course Name:*";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(400, 15);
             label2.Name = "label2";
-            label2.Size = new Size(78, 15);
+            label2.Size = new Size(83, 15);
             label2.TabIndex = 3;
-            label2.Text = "Course Code:";
+            label2.Text = "Course Code:*";
             // 
             // textBox2
             // 
@@ -89,9 +89,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(13, 44);
             label3.Name = "label3";
-            label3.Size = new Size(83, 15);
+            label3.Size = new Size(88, 15);
             label3.TabIndex = 4;
-            label3.Text = "Program Type:";
+            label3.Text = "Program Type:*";
             // 
             // comboBox1
             // 
@@ -107,9 +107,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(231, 44);
             label4.Name = "label4";
-            label4.Size = new Size(62, 15);
+            label4.Size = new Size(67, 15);
             label4.TabIndex = 7;
-            label4.Text = "Year Level:";
+            label4.Text = "Year Level:*";
             // 
             // comboBox2
             // 
@@ -125,18 +125,18 @@
             label5.AutoSize = true;
             label5.Location = new Point(59, 73);
             label5.Name = "label5";
-            label5.Size = new Size(37, 15);
+            label5.Size = new Size(42, 15);
             label5.TabIndex = 10;
-            label5.Text = "Units:";
+            label5.Text = "Units:*";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Location = new Point(174, 73);
             label6.Name = "label6";
-            label6.Size = new Size(101, 15);
+            label6.Size = new Size(106, 15);
             label6.TabIndex = 12;
-            label6.Text = "Semester Offered:";
+            label6.Text = "Semester Offered:*";
             // 
             // comboBox3
             // 

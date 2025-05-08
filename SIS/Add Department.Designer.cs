@@ -51,15 +51,16 @@
             comboBox6.Name = "comboBox6";
             comboBox6.Size = new Size(102, 23);
             comboBox6.TabIndex = 58;
+            comboBox6.Text = "Active";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Location = new Point(166, 170);
             label8.Name = "label8";
-            label8.Size = new Size(43, 15);
+            label8.Size = new Size(48, 15);
             label8.TabIndex = 57;
-            label8.Text = "Active:";
+            label8.Text = "Active:*";
             // 
             // button1
             // 
@@ -80,15 +81,15 @@
             label2.AutoSize = true;
             label2.Location = new Point(14, 41);
             label2.Name = "label2";
-            label2.Size = new Size(69, 15);
+            label2.Size = new Size(74, 15);
             label2.TabIndex = 43;
-            label2.Text = "Dept. Code:";
+            label2.Text = "Dept. Code:*";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(89, 38);
+            textBox2.Location = new Point(94, 38);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(309, 23);
+            textBox2.Size = new Size(304, 23);
             textBox2.TabIndex = 42;
             // 
             // label1
@@ -96,15 +97,15 @@
             label1.AutoSize = true;
             label1.Location = new Point(14, 12);
             label1.Name = "label1";
-            label1.Size = new Size(73, 15);
+            label1.Size = new Size(78, 15);
             label1.TabIndex = 41;
-            label1.Text = "Dept. Name:";
+            label1.Text = "Dept. Name:*";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(89, 9);
+            textBox1.Location = new Point(94, 9);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(309, 23);
+            textBox1.Size = new Size(304, 23);
             textBox1.TabIndex = 40;
             // 
             // comboBox1
@@ -174,6 +175,7 @@
             Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(textBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Add_Department";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Department";

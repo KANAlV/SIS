@@ -60,6 +60,8 @@
             groupBox1 = new GroupBox();
             label1 = new Label();
             button3 = new Button();
+            label14 = new Label();
+            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -380,11 +382,31 @@
             button3.Click += button3_Click;
             button3.MouseHover += button3_MouseHover;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(76, 316);
+            label14.Name = "label14";
+            label14.Size = new Size(59, 15);
+            label14.TabIndex = 86;
+            label14.Text = "##/##/##";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(1, 316);
+            label15.Name = "label15";
+            label15.Size = new Size(79, 15);
+            label15.TabIndex = 85;
+            label15.Text = "Last Updated:";
+            // 
             // Edit_Faculty
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(838, 331);
+            Controls.Add(label14);
+            Controls.Add(label15);
             Controls.Add(button3);
             Controls.Add(comboBox7);
             Controls.Add(label13);
@@ -398,6 +420,7 @@
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(groupBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Edit_Faculty";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Faculty";
@@ -444,5 +467,7 @@
         private GroupBox groupBox1;
         private Label label1;
         private Button button3;
+        private Label label14;
+        private Label label15;
     }
 }
