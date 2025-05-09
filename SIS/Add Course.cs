@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace SIS
     {
         Form crs;
         int unit;
+        string id;
         string connectionString = "server=localhost;database=sis;user=root;password=;";
         public Add_Course(Form Crs)
         {
@@ -88,29 +90,33 @@ namespace SIS
             bool Cont = true;
             if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
             if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
+            if (string.IsNullOrWhiteSpace(textBox3.Text)) { Cont = false; Debug.WriteLine("tb3"); }
             if (string.IsNullOrWhiteSpace(comboBox1.Text)) { Cont = false; Debug.WriteLine("cb1"); }
             if (string.IsNullOrWhiteSpace(comboBox3.Text)) { Cont = false; Debug.WriteLine("cb3"); }
             if (Cont == true)
             {
                 string insertQuery = @"INSERT INTO course
-                (course_code, course_name, description, units, department_code, program_type, level, semester_offered, prerequisite_ids)
-                VALUES (
-                    @CC,
-                    @CN,
-                    @Desc,
-                    @units,
-                    @deptCD,
-                    @PT,
-                    @lvl,
-                    @SO,
-                    @prereqs
-                )";
+(course_code, course_name, description, units, department_code, program_type, level, semester_offered, prerequisite_ids)
+VALUES (
+    @CC,
+    @CN,
+    @Desc,
+    @units,
+    @deptCD,
+    @PT,
+    @lvl,
+    @SO,
+    @prereqs
+)";
+
+                long lastInsertId;
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     MySqlCommand command = new MySqlCommand(insertQuery, connection);
+
                     var selectedItems = listBox1.SelectedItems.Cast<string>();
-                    string prereq = string.Join(", ", selectedItems.Select(item => $"'{item}'")); // adds quotes
+                    string prereq = string.Join(", ", selectedItems.Select(item => $"'{item}'")); // With quotes
                     getUnitTotal(prereq);
 
                     command.Parameters.AddWithValue("@CC", textBox2.Text);
@@ -122,17 +128,50 @@ namespace SIS
                     command.Parameters.AddWithValue("@lvl", comboBox2.Text);
                     command.Parameters.AddWithValue("@SO", comboBox3.Text);
 
-                    var selectedItems1 = listBox1.SelectedItems.Cast<string>();
-                    string prereq1 = string.Join(", ", selectedItems1);
-                    command.Parameters.AddWithValue("@prereqs", prereq1);
+                    string prereqPlain = string.Join(", ", selectedItems); // Without quotes for DB
+                    command.Parameters.AddWithValue("@prereqs", prereqPlain);
 
                     try
                     {
                         connection.Open();
                         int rowsInserted = command.ExecuteNonQuery();
-                        MessageBox.Show($"{rowsInserted} row(s) inserted.");
-                        Console.WriteLine($"{rowsInserted} row(s) inserted.");
-                        Debug.WriteLine($"{rowsInserted} row(s) inserted.");
+                        lastInsertId = command.LastInsertedId;
+
+                        MessageBox.Show($"{rowsInserted} row(s) inserted to courses.");
+                        Console.WriteLine($"{rowsInserted} row(s) inserted to courses.");
+                        Debug.WriteLine($"{rowsInserted} row(s) inserted to courses.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                        Debug.WriteLine("Error: " + ex.Message);
+                        return; // Stop if insertion failed
+                    }
+                }
+
+                string insertFeeQuery = @"INSERT INTO coursefee
+(course_id, amount)
+VALUES (
+    @CID,
+    @AMNT
+)";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    MySqlCommand command = new MySqlCommand(insertFeeQuery, connection);
+                    command.Parameters.AddWithValue("@CID", lastInsertId);
+                    command.Parameters.AddWithValue("@AMNT", textBox3.Text);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsInserted = command.ExecuteNonQuery();
+
+                        MessageBox.Show($"{rowsInserted} row(s) inserted to course fee.");
+                        Console.WriteLine($"{rowsInserted} row(s) inserted to course fee.");
+                        Debug.WriteLine($"{rowsInserted} row(s) inserted to course fee.");
+
+                        this.id = null;
                         Close();
                     }
                     catch (Exception ex)
@@ -141,6 +180,7 @@ namespace SIS
                         Debug.WriteLine("Error: " + ex.Message);
                     }
                 }
+
             }
         }
 

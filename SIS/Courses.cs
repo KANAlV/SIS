@@ -33,7 +33,7 @@ namespace SIS
             FROM 
                 course c
             LEFT JOIN 
-                department d ON c.department_code = d.code;
+                department d ON c.department_code = d.code AND coursefee f;
             ";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))

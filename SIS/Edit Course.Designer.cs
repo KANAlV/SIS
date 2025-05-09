@@ -53,6 +53,8 @@
             label14 = new Label();
             label15 = new Label();
             button3 = new Button();
+            label10 = new Label();
+            textBox3 = new TextBox();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -93,9 +95,9 @@
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(listBox1);
-            groupBox1.Location = new Point(412, 38);
+            groupBox1.Location = new Point(412, 70);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 245);
+            groupBox1.Size = new Size(200, 212);
             groupBox1.TabIndex = 34;
             groupBox1.TabStop = false;
             groupBox1.Text = "Subjects";
@@ -103,7 +105,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(72, 228);
+            label5.Location = new Point(72, 195);
             label5.Name = "label5";
             label5.Size = new Size(21, 15);
             label5.TabIndex = 90;
@@ -112,7 +114,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(6, 227);
+            label9.Location = new Point(6, 194);
             label9.Name = "label9";
             label9.Size = new Size(65, 15);
             label9.TabIndex = 89;
@@ -126,7 +128,7 @@
             listBox1.Location = new Point(6, 52);
             listBox1.Name = "listBox1";
             listBox1.SelectionMode = SelectionMode.MultiSimple;
-            listBox1.Size = new Size(188, 169);
+            listBox1.Size = new Size(188, 139);
             listBox1.TabIndex = 16;
             // 
             // button1
@@ -166,15 +168,15 @@
             comboBox3.Enabled = false;
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "1st", "2nd", "3rd", "1st, 2nd", "All" });
-            comboBox3.Location = new Point(299, 70);
+            comboBox3.Location = new Point(524, 38);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(103, 23);
+            comboBox3.Size = new Size(88, 23);
             comboBox3.TabIndex = 31;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(187, 73);
+            label6.Location = new Point(412, 41);
             label6.Name = "label6";
             label6.Size = new Size(106, 15);
             label6.TabIndex = 30;
@@ -303,11 +305,29 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(192, 76);
+            label10.Name = "label10";
+            label10.Size = new Size(73, 15);
+            label10.TabIndex = 93;
+            label10.Text = "Course Fee:*";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(271, 73);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(129, 23);
+            textBox3.TabIndex = 92;
+            // 
             // Edit_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 321);
+            Controls.Add(label10);
+            Controls.Add(textBox3);
             Controls.Add(button3);
             Controls.Add(label14);
             Controls.Add(label15);
@@ -366,5 +386,7 @@
         private Label label5;
         private Label label9;
         private Button button3;
+        private Label label10;
+        private TextBox textBox3;
     }
 }

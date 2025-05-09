@@ -46,6 +46,8 @@
             groupBox2 = new GroupBox();
             richTextBox1 = new RichTextBox();
             button1 = new Button();
+            label5 = new Label();
+            textBox3 = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -121,7 +123,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(198, 73);
+            label6.Location = new Point(412, 44);
             label6.Name = "label6";
             label6.Size = new Size(106, 15);
             label6.TabIndex = 12;
@@ -131,9 +133,9 @@
             // 
             comboBox3.FormattingEnabled = true;
             comboBox3.Items.AddRange(new object[] { "1st", "2nd", "3rd", "1st, 2nd", "All" });
-            comboBox3.Location = new Point(310, 70);
+            comboBox3.Location = new Point(524, 41);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(92, 23);
+            comboBox3.Size = new Size(88, 23);
             comboBox3.TabIndex = 13;
             // 
             // comboBox4
@@ -160,16 +162,16 @@
             listBox1.Location = new Point(6, 52);
             listBox1.Name = "listBox1";
             listBox1.SelectionMode = SelectionMode.MultiSimple;
-            listBox1.Size = new Size(188, 184);
+            listBox1.Size = new Size(188, 154);
             listBox1.TabIndex = 16;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(textBox4);
             groupBox1.Controls.Add(listBox1);
-            groupBox1.Location = new Point(412, 44);
+            groupBox1.Location = new Point(412, 70);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 242);
+            groupBox1.Size = new Size(200, 216);
             groupBox1.TabIndex = 17;
             groupBox1.TabStop = false;
             groupBox1.Text = "Subjects";
@@ -217,11 +219,29 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(198, 73);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 15);
+            label5.TabIndex = 21;
+            label5.Text = "Course Fee:*";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(277, 70);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(129, 23);
+            textBox3.TabIndex = 20;
+            // 
             // Add_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 321);
+            Controls.Add(label5);
+            Controls.Add(textBox3);
             Controls.Add(button1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -269,5 +289,7 @@
         private RichTextBox richTextBox1;
         private Button button1;
         private TextBox textBox4;
+        private Label label5;
+        private TextBox textBox3;
     }
 }

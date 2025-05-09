@@ -47,7 +47,6 @@
             student_id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             payment_plan = new DataGridViewTextBoxColumn();
-            total_due = new DataGridViewTextBoxColumn();
             term = new DataGridViewTextBoxColumn();
             sem = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -60,10 +59,10 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.Black;
-            button4.Location = new Point(10, 74);
+            button4.Location = new Point(10, 77);
             button4.Margin = new Padding(0);
             button4.Name = "button4";
-            button4.Size = new Size(41, 28);
+            button4.Size = new Size(41, 39);
             button4.TabIndex = 17;
             button4.Text = "⟳";
             button4.UseVisualStyleBackColor = false;
@@ -98,6 +97,7 @@
             button3.TabIndex = 11;
             button3.Text = "Create";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // label4
             // 
@@ -171,7 +171,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { enrollment_id, status, student_id, name, payment_plan, total_due, term, sem });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { enrollment_id, status, student_id, name, payment_plan, term, sem });
             dataGridView1.Location = new Point(10, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -241,12 +241,6 @@
             payment_plan.Name = "payment_plan";
             payment_plan.ReadOnly = true;
             // 
-            // total_due
-            // 
-            total_due.HeaderText = "Total Due";
-            total_due.Name = "total_due";
-            total_due.ReadOnly = true;
-            // 
             // term
             // 
             term.HeaderText = "Term";
@@ -268,6 +262,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Name = "Enrollment";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Enrollment";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
@@ -296,7 +291,6 @@
         private DataGridViewTextBoxColumn student_id;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn payment_plan;
-        private DataGridViewTextBoxColumn total_due;
         private DataGridViewTextBoxColumn term;
         private DataGridViewTextBoxColumn sem;
     }

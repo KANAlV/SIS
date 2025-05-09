@@ -169,7 +169,7 @@ namespace SIS
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                string id = row.Cells["course_id"].Value?.ToString();
+                string id = row.Cells["subject_id"].Value?.ToString();
                 Edit_Subjects edit_Subjects = new Edit_Subjects(this, id);
                 this.Visible = false;
                 edit_Subjects.Show();

@@ -141,7 +141,7 @@ namespace SIS
 
                     command.Parameters.AddWithValue("@SC", textBox2.Text);
                     command.Parameters.AddWithValue("@SN", textBox1.Text);
-                    command.Parameters.AddWithValue("@units", comboBox1);
+                    command.Parameters.AddWithValue("@units", comboBox1.Text);
                     command.Parameters.AddWithValue("@Lvl", comboBox2.Text);
                     command.Parameters.AddWithValue("@Dept", comboBox4.Text);
                     command.Parameters.AddWithValue("@Desc", richTextBox1.Text);

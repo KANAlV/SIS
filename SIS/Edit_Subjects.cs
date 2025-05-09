@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,54 @@ namespace SIS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool Cont = true;
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
+            if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
+            if (string.IsNullOrWhiteSpace(comboBox1.Text)) { Cont = false; Debug.WriteLine("cb1"); }
+            if (Cont == true)
+            {
+                string insertQuery = @"UPDATE faculty SET
+                    subject_code = @SC,
+                    subject_name = @SN,
+                    units = @units,
+                    year_level = @Lvl,
+                    department = @Dept,
+                    prerequisites = @Pre,
+                    description = @Desc
+                WHERE staff_id = @ID;";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+
+                    command.Parameters.AddWithValue("@SC", textBox2.Text);
+                    command.Parameters.AddWithValue("@SN", textBox1.Text);
+                    command.Parameters.AddWithValue("@units", comboBox1.Text);
+                    command.Parameters.AddWithValue("@Lvl", comboBox2.Text);
+                    command.Parameters.AddWithValue("@Dept", comboBox4.Text);
+                    command.Parameters.AddWithValue("@Desc", richTextBox1.Text);
+                    command.Parameters.AddWithValue("@ID", this.id);
+
+                    var selectedItems1 = listBox1.SelectedItems.Cast<string>();
+                    string prereq1 = string.Join(", ", selectedItems1);
+                    command.Parameters.AddWithValue("@Pre", prereq1);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsInserted = command.ExecuteNonQuery();
+                        MessageBox.Show($"{rowsInserted} row(s) inserted.");
+                        Console.WriteLine($"{rowsInserted} row(s) inserted.");
+                        Debug.WriteLine($"{rowsInserted} row(s) inserted.");
+                        Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                        Debug.WriteLine("Error: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void getData()
