@@ -22,26 +22,8 @@ namespace SIS
         {
             InitializeComponent();
             this.crs = Crs;
-            string query = @"SELECT course_code FROM course";
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                string courseCode = reader["course_code"].ToString();
-                                listBox1.Items.Add(courseCode);
-                            }
-                        }
-                    }
-                }
-            }
-            query = @"SELECT code FROM department";
+            getSubCode();
+            string query = @"SELECT code FROM department";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
@@ -61,14 +43,52 @@ namespace SIS
                 }
             }
         }
+        private void getSubCode()
+        {
+            string filter = textBox4.Text.Trim(); // get search input
+            string query;
 
+            if (string.IsNullOrEmpty(filter) || filter == "Search...")
+            {
+                // No search term: get all subject codes
+                query = @"SELECT subject_code FROM subjects";
+            }
+            else
+            {
+                // Search term exists: filter results (e.g., by subject_code)
+                query = @"SELECT subject_code FROM subjects WHERE subject_code LIKE @filter";
+            }
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        cmd.Parameters.AddWithValue("@filter", $"%{filter}%");
+                    }
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                string subjectCode = reader["subject_code"].ToString();
+                                listBox1.Items.Add(subjectCode);
+                            }
+                        }
+                    }
+                }
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             bool Cont = true;
             if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
             if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
             if (string.IsNullOrWhiteSpace(comboBox1.Text)) { Cont = false; Debug.WriteLine("cb1"); }
-            if (string.IsNullOrWhiteSpace(comboBox2.Text)) { Cont = false; Debug.WriteLine("cb2"); }
             if (string.IsNullOrWhiteSpace(comboBox3.Text)) { Cont = false; Debug.WriteLine("cb3"); }
             if (Cont == true)
             {
@@ -135,13 +155,18 @@ namespace SIS
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            string query = @"SELECT course_code FROM Course WHERE 1=1";
-            List<MySqlParameter> parameters = new List<MySqlParameter>();
+            string filter = textBox4.Text.Trim(); // get search input
+            string query;
 
-            if (!string.IsNullOrWhiteSpace(textBox4.Text))
+            if (string.IsNullOrEmpty(filter) || filter == "Search...")
             {
-                query += " AND course_code LIKE @CC";
-                parameters.Add(new MySqlParameter("@CC", "%" + textBox4.Text + "%"));
+                // No search term: get all subject codes
+                query = @"SELECT subject_code FROM subjects";
+            }
+            else
+            {
+                // Search term exists: filter results (e.g., by subject_code)
+                query = @"SELECT subject_code FROM subjects WHERE subject_code LIKE @filter";
             }
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -149,23 +174,23 @@ namespace SIS
                 conn.Open();
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddRange(parameters.ToArray());
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        // Add parameter with wildcard for partial match
+                        cmd.Parameters.AddWithValue("@filter", $"%{filter}%");
+                    }
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        listBox1.Items.Clear();
+                        listBox1.Items.Clear(); // clear previous results
 
                         if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
-                                string courseCode = reader["course_code"].ToString();
-                                listBox1.Items.Add(courseCode);
+                                string subjectCode = reader["subject_code"].ToString();
+                                listBox1.Items.Add(subjectCode);
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("No courses found matching your filters.");
                         }
                     }
                 }

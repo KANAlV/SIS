@@ -30,5 +30,11 @@ namespace SIS
             Enrollment enrollment = new Enrollment();
             enrollment.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Subjects subjects = new Subjects();
+            subjects.Show();
+        }
     }
 }

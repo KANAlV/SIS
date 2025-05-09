@@ -40,6 +40,7 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+            button10 = new Button();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(button10);
             tabPage2.Controls.Add(button8);
             tabPage2.Controls.Add(button7);
             tabPage2.Controls.Add(button9);
@@ -95,7 +97,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(455, 131);
+            button7.Location = new Point(625, 66);
             button7.Name = "button7";
             button7.Size = new Size(79, 59);
             button7.TabIndex = 9;
@@ -150,7 +152,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(540, 131);
+            button2.Location = new Point(455, 131);
             button2.Name = "button2";
             button2.Size = new Size(79, 59);
             button2.TabIndex = 1;
@@ -167,6 +169,16 @@
             button1.Text = "Enrollment";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(540, 131);
+            button10.Name = "button10";
+            button10.Size = new Size(79, 59);
+            button10.TabIndex = 11;
+            button10.Text = "Subjects";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // MainForm
             // 
@@ -197,5 +209,6 @@
         private Button button9;
         private Button button7;
         private Button button8;
+        private Button button10;
     }
 }

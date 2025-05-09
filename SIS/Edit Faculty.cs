@@ -25,6 +25,7 @@ namespace SIS
             this.Fac = Fac;
             this.id = id;
             EsKewEl();
+            faculty();
         }
         private void EsKewEl()
         {
@@ -266,6 +267,28 @@ namespace SIS
 
         private void button3_MouseHover(object sender, EventArgs e)
         {
+        }
+        private void faculty()
+        {
+            string query = @"SELECT code FROM department";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                string courseCode = reader["code"].ToString();
+                                comboBox6.Items.Add(courseCode);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

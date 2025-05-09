@@ -23,7 +23,6 @@ namespace SIS
             InitializeComponent();
             this.Cor = Cor;
             this.id = id;
-            getSubCode();
             string query = @"SELECT code FROM department";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -102,7 +101,6 @@ namespace SIS
             if (string.IsNullOrWhiteSpace(textBox1.Text)) { Cont = false; Debug.WriteLine("tb1"); }
             if (string.IsNullOrWhiteSpace(textBox2.Text)) { Cont = false; Debug.WriteLine("tb2"); }
             if (string.IsNullOrWhiteSpace(comboBox1.Text)) { Cont = false; Debug.WriteLine("cb1"); }
-            if (string.IsNullOrWhiteSpace(comboBox2.Text)) { Cont = false; Debug.WriteLine("cb2"); }
             if (string.IsNullOrWhiteSpace(comboBox3.Text)) { Cont = false; Debug.WriteLine("cb3"); }
             if (Cont == true)
             {
@@ -176,7 +174,7 @@ namespace SIS
             string filter = textBox4.Text.Trim(); // get search input
             string query;
 
-            if (string.IsNullOrEmpty(filter))
+            if (string.IsNullOrEmpty(filter)||filter == "Search...")
             {
                 // No search term: get all subject codes
                 query = @"SELECT subject_code FROM subjects";

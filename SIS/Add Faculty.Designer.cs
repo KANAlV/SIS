@@ -323,6 +323,7 @@
             comboBox7.Name = "comboBox7";
             comboBox7.Size = new Size(102, 23);
             comboBox7.TabIndex = 61;
+            comboBox7.Text = "Active";
             // 
             // label13
             // 

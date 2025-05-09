@@ -172,7 +172,7 @@
             groupBox1.Size = new Size(200, 242);
             groupBox1.TabIndex = 17;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Prerequisite Course";
+            groupBox1.Text = "Subjects";
             // 
             // textBox4
             // 

@@ -36,7 +36,7 @@ namespace SIS
                             while (reader.Read())
                             {
                                 string courseCode = reader["code"].ToString();
-                                comboBox4.Items.Add(courseCode);
+                                comboBox6.Items.Add(courseCode);
                             }
                         }
                     }
